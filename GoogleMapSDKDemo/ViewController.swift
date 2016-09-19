@@ -10,11 +10,21 @@ import UIKit
 import GoogleMaps
 
 class ViewController: UIViewController {
-
+    // MARK: - IBOutlet
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let camera = GMSCameraPosition.cameraWithLatitude(1.285, longitude: 103.848, zoom: 12)
+        let mapView = GMSMapView.mapWithFrame(.zero, camera: camera)
+        self.view = mapView
+        
+        let position = CLLocationCoordinate2DMake(1.285, 103.848)
+        let marker = GMSMarker(position: position)
+        marker.title = "Hello World"
+        marker.map = mapView
+        
     }
-
 
 }
